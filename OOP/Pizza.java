@@ -16,7 +16,7 @@ public class Pizza {
 		this.topping = topping;
 	}
 
-	String desc() {
+	public String toString() {
 	    return String.format("Here are the ingredients of your pizza: %s, %s, %s, %s.", this.bread, this.sauce, this.cheese, this.topping);
 	}
 }

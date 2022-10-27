@@ -20,4 +20,8 @@ public class Car {
 	void brake() {
 	   	System.out.println(String.format("The %s brakes!", this.model));
 	}
+
+	public String toString() {
+	    return String.format("The %s %s is a %s car built in %s which costs %s.", this.make, this.model, this.color, this.year, this.price);
+	}
 }
