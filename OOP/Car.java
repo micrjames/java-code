@@ -1,15 +1,23 @@
 public class Car {
-   	String make = "Chevrolet";
-	String model = "Corvette";
-	int year = 2020;
-	String color = "blue";
-	double price = 50000.00;
+   	String make;
+	String model;
+	int year;
+	String color;
+	double price;
+
+	Car(String make, String model, int year, String color, double price) {
+	   this.make = make;
+	   this.model = model;
+	   this.year = year;
+	   this.color = color;
+	   this.price = price;
+	}
 
 	void drive() {
-	   	System.out.println("Drive!");
+	   	System.out.println(String.format("The %s drives!", this.model));
 	}
 
 	void brake() {
-	   	System.out.println("Brake!");
+	   	System.out.println(String.format("The %s brakes!", this.model));
 	}
 }
