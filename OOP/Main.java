@@ -23,12 +23,9 @@ public class Main {
 	   garage.park(bronco);
 	   garage.park(sable);
 
-	   System.out.println(String.format("I have %d friends.", Friend.numberOfFriends));
-	   Friend friend1 = new Friend("Tony");
-	   System.out.println(String.format("I have %d friends.", Friend.numberOfFriends));
-	   Friend friend2 = new Friend("Paulie");
-	   System.out.println(String.format("I have %d friends.", Friend.numberOfFriends));
-	   Friend friend3 = new Friend("Bobby");
-	   System.out.println(String.format("I have %d friends.", Friend.numberOfFriends));
+	   taurus.go();
+
+	   Bicycle bike = new Bicycle();
+	   bike.stop();
    }
 }

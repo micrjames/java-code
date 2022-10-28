@@ -1,9 +1,11 @@
-public class Car {
+public class Car extends Vehicle {
    	String make;
 	String model;
 	int year;
 	String color;
 	double price;
+
+	int numWheels = 4;
 
 	Car(String make, String model, int year, String color, double price) {
 	   this.make = make;
