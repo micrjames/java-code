@@ -6,6 +6,7 @@ public class Car extends Vehicle {
 	double price;
 
 	int numWheels = 4;
+	int numDoors = 4;
 
 	Car(String make, String model, int year, String color, double price) {
 	   this.make = make;
