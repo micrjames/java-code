@@ -24,6 +24,16 @@ public class Car extends Vehicle {
 	   	System.out.println(String.format("The %s brakes!", this.model));
 	}
 
+	@Override
+	void go() {
+	    System.out.println(String.format("The %s is moving", this.make, this.model));
+	}
+
+	@Override
+	void stop() {
+	    System.out.println(String.format("The %s is stopping", this.make, this.model));
+	}
+
 	public String toString() {
 	    return String.format("The %s %s is a %s car built in %s which costs %s.", this.make, this.model, this.color, this.year, this.price);
 	}
