@@ -3,57 +3,53 @@ package com.mycompany.app;
 import java.util.Random;
 import java.util.Arrays;
 
-class Rnd extends Random {
+public class Rnd extends Random {
     // "number" and "integer" functions returns are inclusive of max and min
     private int minimum;
     private int maximum;
 
-	Rnd() {
+	public Rnd() {
 	   this.minimum = -1;
 	   this.maximum = -1;
-
-	   this.setSeed(System.currentTimeMillis());
 	}
-	Rnd(int minimum, int maximum) {
+	public Rnd(int minimum, int maximum) {
 	   this.minimum = minimum;
 	   this.maximum = maximum;
-
-	   this.setSeed(System.currentTimeMillis());
 	}
 
-    void setMin(int value) {
+    public void setMin(int value) {
 	    this.minimum = value;
 	}
-    int getMin() {
+    public int getMin() {
 	    return this.minimum;
 	}
-    void setMax(int value) {
+    public void setMax(int value) {
 	    this.maximum = value;
 	}
-    int getMax() {
+    public int getMax() {
 	    return this.maximum;
 	}
 
-    double getNumber() {
+    public double getNumber() {
 		return this.nextDouble() * (this.maximum - this.minimum + 1) + this.minimum;
 	}
       
-    int getInteger() {
+    public int getInteger() {
 		return this.nextInt(this.maximum);
 	}
 	  
-	int zeroOrOne() {
+	public int zeroOrOne() {
 	    return this.nextInt(1);
 	}
 	
-    int choice(int nums[]) {
+    public <T> T choice(T[] array) {
 	    this.minimum = 0;
-	    this.maximum = nums.length - 1;
+	    this.maximum = array.length - 1;
 		
-	    return nums[this.getInteger()];
+	    return array[this.getInteger()];
 	}
 	  
-	static int[] populate(int n, int start, int end) {
+	public static int[] populate(int n, int start, int end) {
 	   int array[] = new int[n];
 	   Rnd rand = new Rnd(start, end);
 	   Arrays.fill(array, rand.getInteger());

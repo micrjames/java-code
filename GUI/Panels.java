@@ -12,10 +12,10 @@ class Panels {
 		 new Rectangle(frameBounds.width/2, frameBounds.height/2, frameBounds.width/2, frameBounds.height/2)
 	  };
       this.panels = new Panel[] {
-		 new Panel(this.bounds[0], Color.green),
-		 new Panel(this.bounds[1], Color.yellow),
-		 new Panel(this.bounds[2], Color.blue),
-		 new Panel(this.bounds[3], Color.red)
+		 new Panel(this.bounds[0], new RandColor().getColor()),
+		 new Panel(this.bounds[1], new RandColor().getColor()),
+		 new Panel(this.bounds[2], new RandColor().getColor()),
+		 new Panel(this.bounds[3], new RandColor().getColor())
 	  };
    }
    Panel[] getPanels() {

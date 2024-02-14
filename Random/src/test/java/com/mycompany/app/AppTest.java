@@ -53,8 +53,8 @@ public class AppTest {
    }
    @Test
    void chooseInt() {
-	  int nums[] = {1, 2, 3, 4};
-	  int numChoice = random.choice(nums);
+	  Integer[] nums = {1, 2, 3, 4};
+	  int numChoice = random.<Integer>choice(nums);
 	  boolean choice = Arrays.stream(nums).anyMatch(num -> num == numChoice);
 	  assertTrue(choice);
    }
