@@ -1,48 +1,64 @@
-class Random {
-   /*
-    // "number" and "integer" functions returns are inclusive of max and min
-    private minimum: number;
-    private maximum: number;
+package com.mycompany.app;
 
-    constructor(minimum:number = -1, maximum: number = -1) {
-	    this.minimum = minimum;
-	    this.maximum = maximum;
+import java.util.Random;
+import java.util.Arrays;
+
+class Rnd extends Random {
+    // "number" and "integer" functions returns are inclusive of max and min
+    private int minimum;
+    private int maximum;
+
+	Rnd() {
+	   this.minimum = -1;
+	   this.maximum = -1;
+
+	   this.setSeed(System.currentTimeMillis());
+	}
+	Rnd(int minimum, int maximum) {
+	   this.minimum = minimum;
+	   this.maximum = maximum;
+
+	   this.setSeed(System.currentTimeMillis());
 	}
 
-    set min(value: number) {
+    void setMin(int value) {
 	    this.minimum = value;
 	}
-    get min(): number{
+    int getMin() {
 	    return this.minimum;
 	}
-    set max(value: number) {
+    void setMax(int value) {
 	    this.maximum = value;
 	}
-    get max(): number {
+    int getMax() {
 	    return this.maximum;
 	}
 
-    get number(): number {
-		return Math.random() * (this.maximum - this.minimum + 1) + this.minimum;
+    double getNumber() {
+		return this.nextDouble() * (this.maximum - this.minimum + 1) + this.minimum;
 	}
-    get integer(): number {
-		return Math.floor(this.number);
+      
+    int getInteger() {
+		return this.nextInt(this.maximum);
 	}
-	get zeroOrOne(): number {
-	    return Math.round(Math.random());
+	  
+	int zeroOrOne() {
+	    return this.nextInt(1);
 	}
-    choice(nums: number[]): number {
+	
+    int choice(int nums[]) {
 	    this.minimum = 0;
 	    this.maximum = nums.length - 1;
 		
-	    return nums[this.integer];
+	    return nums[this.getInteger()];
 	}
-	static populate(n: number, start: number = 0, end: number = 100): number[] {
-	   return Array.from({length: n}, _ => {
-		  const randNum = new Random(start, end);
-		  return randNum.integer;
-	   });
+	  
+	static int[] populate(int n, int start, int end) {
+	   int array[] = new int[n];
+	   Rnd rand = new Rnd(start, end);
+	   Arrays.fill(array, rand.getInteger());
+
+	   return array;
 	}
-	*/
 }
 
