@@ -1,4 +1,5 @@
 class Random {
+   /*
     // "number" and "integer" functions returns are inclusive of max and min
     private minimum: number;
     private maximum: number;
@@ -42,5 +43,6 @@ class Random {
 		  return randNum.integer;
 	   });
 	}
+	*/
 }
 
