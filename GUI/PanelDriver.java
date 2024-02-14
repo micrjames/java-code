@@ -6,7 +6,7 @@ class PanelDriver {
 	  Rectangle frameBounds = new Rectangle(640, 480);
 	  Frame frame = new Frame("Some Panels.", false, frameBounds.width, frameBounds.height, Color.white, null);
 
-	  Panels panels = new Panels(frameBounds);
+	  Panels panels = new Panels(frameBounds, Integer.parseInt(args[0]));
 	  for(Panel panel : panels.getPanels())
 		 frame.addPanel(panel);
 	  frame.display();

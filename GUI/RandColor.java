@@ -2,7 +2,7 @@ import java.awt.Color;
 import com.mycompany.app.Rnd;
 
 class RandColor {
-   private Color[] colors;
+   private static Color[] colors;
    RandColor() {
 	  this.colors = new Color[] {
 		 Color.black,
@@ -21,7 +21,7 @@ class RandColor {
 	  };
    }
 
-   public Color getColor() {
-	  return new Rnd(0, this.colors.length-1).<Color>choice(this.colors);
+   public static Color getColor() {
+	  return new Rnd().<Color>choice(RandColor.colors);
    }
 }

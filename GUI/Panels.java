@@ -1,22 +1,33 @@
 import java.awt.Rectangle;
 import java.awt.Color;
+import java.util.stream.IntStream;
 
 class Panels {
    private Rectangle[] bounds;
    private Panel[] panels;
-   Panels(Rectangle frameBounds) {
-	  this.bounds = new Rectangle[] {
-		 new Rectangle(0, 0, frameBounds.width/2, frameBounds.height/2),
-		 new Rectangle(frameBounds.width/2, 0, frameBounds.width/2, frameBounds.height/2),
-		 new Rectangle(0, frameBounds.height/2, frameBounds.width/2, frameBounds.height/2),
-		 new Rectangle(frameBounds.width/2, frameBounds.height/2, frameBounds.width/2, frameBounds.height/2)
-	  };
-      this.panels = new Panel[] {
-		 new Panel(this.bounds[0], new RandColor().getColor()),
-		 new Panel(this.bounds[1], new RandColor().getColor()),
-		 new Panel(this.bounds[2], new RandColor().getColor()),
-		 new Panel(this.bounds[3], new RandColor().getColor())
-	  };
+   private int n;
+   Panels(Rectangle frameBounds, int n) {
+	  this.n = n;
+	  this.bounds = new Rectangle[this.n*this.n];
+      this.panels = new Panel[this.n * this.n];
+
+	  this.setBounds(frameBounds);
+	  this.setPanels();
+   }
+   private void setBounds(Rectangle frameBounds) {
+	  IntStream.range(0, this.bounds.length).forEach(index -> {
+		 this.bounds[index] = new Rectangle(
+			   (index * frameBounds.width/this.n)%frameBounds.width,
+			   (int)(Math.floor(index / this.n) * (frameBounds.height/this.n)),
+			   frameBounds.width/this.n,
+			   frameBounds.height/this.n
+		 );
+	  });
+   }
+   private void setPanels() {
+	  IntStream.range(0, this.panels.length).forEach(index -> {
+		 panels[index] = new Panel(bounds[index], new RandColor().getColor());
+	  });
    }
    Panel[] getPanels() {
 	  return this.panels;
