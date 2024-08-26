@@ -3,6 +3,10 @@ import java.util.Scanner;
 public class Hyp {
    public static void main(String[] args) {
 	  double x, y, z;
+	  // or
+	  // double x;
+	  // double y;
+	  // double z;
 
 	  Scanner scanner = new Scanner(System.in);
 
