@@ -1,6 +1,6 @@
 import java.io.File;
 
-public class Main {
+public class File {
    public static void main(String[] args) {
 	   File file = new File("secret_message");
 	   // file.getPath()
