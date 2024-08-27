@@ -2,18 +2,9 @@ import java.util.*;
 
 class ThreadDemo extends Thread {
    private int data;
+   private Runnable callback;
 
    public void run() {
-	  ask_for_data(() -> {
-		 try {
-			Thread.sleep(1000);
-		 } catch(Exception e) {};
-		 data = 42;
-		 System.out.println("Async callback: " + data);
-	  });
-   }
-
-   public void ask_for_data(final Runnable callback) {
 	  /*
 	  new Thread(new Runnable() {
 		 public void run() {
@@ -22,5 +13,17 @@ class ThreadDemo extends Thread {
 	  }).start();
 	  */
 	  new Thread(callback).start();
+   }
+
+   public void setData(int data) {
+	  this.data = data;
+   }
+
+   public int getData() {
+	  return data;
+   }
+
+   public void do_for_data(final Runnable callback) {
+	  this.callback = callback;
    }
 }
