@@ -1,7 +1,6 @@
 import java.util.*;
 
 class ThreadDemo extends Thread {
-   private int data;
    private Runnable callback;
 
    public void run() {
@@ -15,15 +14,9 @@ class ThreadDemo extends Thread {
 	  new Thread(callback).start();
    }
 
-   public void setData(int data) {
-	  this.data = data;
-   }
-
-   public int getData() {
-	  return data;
-   }
-
-   public void do_for_data(final Runnable callback) {
+   public ThreadDemo do_for_data(final Runnable callback) {
 	  this.callback = callback;
+
+	  return this;
    }
 }
